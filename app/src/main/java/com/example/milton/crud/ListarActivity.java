@@ -38,11 +38,8 @@ public class ListarActivity extends AppCompatActivity {
         accessDB = new AccessDB(this);
         alunos = accessDB.obterAlunos();
         alunosConsultados.addAll(alunos);
-<<<<<<< HEAD
+
         AlunoAdapter adapter = new AlunoAdapter(alunosConsultados, this);
-=======
-        ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunosConsultados);
->>>>>>> 3269ce18b9657fd0a799494d21366ad94d9eccad
         listView.setAdapter(adapter);
 
         registerForContextMenu(listView);
