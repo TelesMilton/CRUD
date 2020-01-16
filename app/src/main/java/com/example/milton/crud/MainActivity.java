@@ -1,1 +1,60 @@
-package com.example.milton.crud;import androidx.appcompat.app.AppCompatActivity;import android.content.Intent;import android.os.Bundle;import android.view.View;import android.widget.EditText;import android.widget.Toast;public class MainActivity extends AppCompatActivity {    private EditText nome;    private EditText cpf;    private EditText telefone;    private AccessDB accessDB;    private Aluno aluno = null;    @Override    protected void onCreate(Bundle savedInstanceState) {        super.onCreate(savedInstanceState);        setContentView(R.layout.activity_main);        nome = findViewById(R.id.editNome);        cpf = findViewById(R.id.editCPF);        telefone = findViewById(R.id.editTelefone);        accessDB = new AccessDB(this);        Intent it = getIntent();        if (it.hasExtra("aluno")) {            aluno = (Aluno) it.getSerializableExtra("aluno");            nome.setText(aluno.getNome());            cpf.setText(aluno.getCPF());            telefone.setText(aluno.getTelefone());        }    }    public void Salvar(View view) {        if (aluno == null) {            Aluno aluno = new Aluno();            aluno.setNome(nome.getText().toString());            aluno.setCPF(cpf.getText().toString());            aluno.setTelefone(telefone.getText().toString());            long id = accessDB.inserir(aluno);            Toast.makeText(this, "Aluno inserido com id " + id, Toast.LENGTH_SHORT).show();        } else {            aluno.setNome(nome.getText().toString());            aluno.setCPF(cpf.getText().toString());            aluno.setTelefone(telefone.getText().toString());            accessDB.atualizar(aluno);            Toast.makeText(this, "Aluno foi atualizado", Toast.LENGTH_SHORT).show();        }    }}
+<<<<<<< HEAD
+package com.example.milton.crud;import androidx.appcompat.app.AppCompatActivity;import android.content.Intent;import android.os.Bundle;import android.view.View;import android.widget.EditText;import android.widget.Toast;public class MainActivity extends AppCompatActivity {    private EditText nome;    private EditText cpf;    private EditText telefone;    private AccessDB accessDB;    private Aluno aluno = null;    @Override    protected void onCreate(Bundle savedInstanceState) {        super.onCreate(savedInstanceState);        setContentView(R.layout.activity_main);        nome = findViewById(R.id.editNome);        cpf = findViewById(R.id.editCPF);        telefone = findViewById(R.id.editTelefone);        accessDB = new AccessDB(this);        Intent it = getIntent();        if (it.hasExtra("aluno")) {            aluno = (Aluno) it.getSerializableExtra("aluno");            nome.setText(aluno.getNome());            cpf.setText(aluno.getCPF());            telefone.setText(aluno.getTelefone());        }    }    public void Salvar(View view) {        if (aluno == null) {            Aluno aluno = new Aluno();            aluno.setNome(nome.getText().toString());            aluno.setCPF(cpf.getText().toString());            aluno.setTelefone(telefone.getText().toString());            long id = accessDB.inserir(aluno);            Toast.makeText(this, "Aluno inserido com id " + id, Toast.LENGTH_SHORT).show();        } else {            aluno.setNome(nome.getText().toString());            aluno.setCPF(cpf.getText().toString());            aluno.setTelefone(telefone.getText().toString());            accessDB.atualizar(aluno);            Toast.makeText(this, "Aluno foi atualizado", Toast.LENGTH_SHORT).show();        }    }}
+=======
+package com.example.milton.crud;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    private EditText nome;
+    private EditText cpf;
+    private EditText telefone;
+    private AccessDB accessDB;
+    private Aluno aluno = null;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        nome = findViewById(R.id.editNome);
+        cpf = findViewById(R.id.editCPF);
+        telefone = findViewById(R.id.editTelefone);
+        accessDB = new AccessDB(this);
+
+        Intent it = getIntent();
+        if (it.hasExtra("aluno")) {
+            aluno = (Aluno) it.getSerializableExtra("aluno");
+            nome.setText(aluno.getNome());
+            cpf.setText(aluno.getCPF());
+            telefone.setText(aluno.getTelefone());
+        }
+    }
+
+    public void Salvar(View view) {
+
+        if (aluno == null) {
+
+            Aluno aluno = new Aluno();
+            aluno.setNome(nome.getText().toString());
+            aluno.setCPF(cpf.getText().toString());
+            aluno.setTelefone(telefone.getText().toString());
+            long id = accessDB.inserir(aluno);
+            Toast.makeText(this, "Aluno inserido com id " + id, Toast.LENGTH_SHORT).show();
+        } else {
+            aluno.setNome(nome.getText().toString());
+            aluno.setCPF(cpf.getText().toString());
+            aluno.setTelefone(telefone.getText().toString());
+            accessDB.atualizar(aluno);
+            Toast.makeText(this, "Aluno foi atualizado", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
+>>>>>>> 3269ce18b9657fd0a799494d21366ad94d9eccad
