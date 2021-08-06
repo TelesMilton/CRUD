@@ -1,1 +1,1 @@
-CRUD no Android Studio com SqLite.
+CRUD no Android Studio com BD SqLite.
